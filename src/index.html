@@ -39,6 +39,7 @@
     <ul class="list">
       <li>Seleccionar el país y el indicador de su interés</li>
       <li>La opción "Ordenar" muestra los datos de forma ascendente/descentente</li>
+      <li>La opción "Max/Min" muestra el porcentaje máximo/mínimo de la selección</li>
       <li>Si deseas limpiar la pantalla, da click en el botón "Limpiar" </li>
     </ul>
     
@@ -82,6 +83,12 @@
     <option value= "desc"> Descendente</option>     
   </select>
 
+  <select id="maximo" class="selectors">
+    <option value="" disabled selected>Max/Min</option>
+  <option value= "max"> Maximo</option>
+  <option value= "min"> Minimo</option>     
+</select>
+
  <input id="limpiar" type="button" class="boton" value="Limpiar">
  
 </section>
@@ -95,11 +102,17 @@
 
 
 </section>
-
+<section id="valorMAx" class="viewMaxMin">
+  <p></p>
+</section>
 <section id="contenido">  
   
 
 </section>
+
+
+
+
 <section id="box4" class="hide">
   <form action="">
     <h2>CONTACTO</h2>

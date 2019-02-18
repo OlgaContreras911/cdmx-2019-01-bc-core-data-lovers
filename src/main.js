@@ -9,6 +9,7 @@ const buttonHome = document.getElementById('home');
 const buttonIndicador = document.getElementById('indicador');
 const selOption = document.getElementById('filtrar-pais');
 const orderAscDat = document.getElementById('order');
+const maximo = document.getElementById('maximo');
 const nameIndicators= document.getElementById('filtrar-indicador');
 let contenido = document.getElementById('contenido');
 let buttonLimpiar = document.getElementById('limpiar');
@@ -126,7 +127,23 @@ for (let i in orderObj)
  return  respOrder;
 }
 
-const orderByAscent = () =>{
+const ptrMax= (selcValor,maxObj)=>{//imprime max/min
+     let viewMax;
+     if (selcValor === 'max') {
+        viewMax = "<b>"+"El valor maximo es: "+maxObj.toFixed(2)+"%"+"</b>"; 
+     }
+
+     if (selcValor === 'min') {
+        viewMax = "<b>"+"El valor minimo es: "+maxObj.toFixed(2)+"%"+"</b>"; 
+     }
+    
+    document.getElementById('valorMAx').innerHTML = viewMax;
+
+    return maxObj;
+ }
+
+
+const orderByAscent = () =>{//funcion ordenar asc/desc
     let arrayOrder=pais;
     let order= orderAscDat.value;
     //console.log(order);
@@ -136,10 +153,21 @@ const orderByAscent = () =>{
 }
 orderAscDat.addEventListener('change',orderByAscent); //funcion recorre el objeto*/
 
+
+const valorMaximo = () =>{//funcion ordenar max/min
+    let arrayMax = valorPorcentajeY;
+    let selcValor = maximo.value;
+    let maxObj =window.worldBank2.objMax(selcValor,arrayMax);
+    ptrMax(selcValor,maxObj)
+}
+maximo.addEventListener('change',valorMaximo); //funcion recorre el objeto*/
+
+
 const limpiar = () => {
     document.getElementById('filtrar-pais').value = '';
     document.getElementById('filtrar-indicador').value = '';
     document.getElementById('order').value = '';
+    document.getElementById('maximo').innerHTML = '';
     document.getElementById('contenido').innerHTML = '';
     document.getElementById('graf').style.display='none';
   } 
@@ -156,3 +184,8 @@ let prtGrap =ctx;
 let almacenaGraf= window.worldBank2.VerGrafica(arrayYear,arrayValors,prtGrap)
 return almacenaGraf;
 }
+
+
+
+
+
