@@ -136,31 +136,31 @@ const recorrerObjeto = (pais) => {
   return respuesta;
 }
 
-// const prtOrder = (orderObj) => {
-//   let respOrder = "<li>"  + "<font size=4.5>" + "<b>" + "Año " + "&nbsp" + "&nbsp" + "  Valor(%)" + "</li>" + "</b>" + "<br>";
-//   for (let i in orderObj) {
-//     respOrder += "<li>" + "<b>" + orderObj[i][0] + ":  " + "</b>" + "&nbsp" + "&nbsp" + parseFloat(orderObj[i][1]).toFixed(2) + "%" + "</li>" + "<br>";
-//   }
-//   document.getElementById('contenido').innerHTML = respOrder;
-//   return respOrder;
-// }
+const prtOrder = (orderObj) => {
+  let respOrder = "<li>"  + "<font size=4.5>" + "<b>" + "Año " + "&nbsp" + "&nbsp" + "  Valor(%)" + "</li>" + "</b>" + "<br>";
+  for (let i in orderObj) {
+    respOrder += "<li>" + "<b>" + orderObj[i][0] + ":  " + "</b>" + "&nbsp" + "&nbsp" + parseFloat(orderObj[i][1]).toFixed(2) + "%" + "</li>" + "<br>";
+  }
+  document.getElementById('contenido').innerHTML = respOrder;
+  return respOrder;
+}
 
-// const ptrMax = (selcValor, maxObj) => { //imprime max/min
+const ptrMax = (selcValor, maxObj) => { //imprime max/min
   
-//   valorMAx.style.display = 'block';
-//   viewMax;
-//   if (selcValor === 'max') {
-//     viewMax = "<b>" + "<font size=4.5>" + "El valor maximo es: " + maxObj.toFixed(2) + "%" + "</b>";
-//   }
+  valorMAx.style.display = 'block';
+  viewMax;
+  if (selcValor === 'max') {
+    viewMax = "<b>" + "<font size=4.5>" + "El valor maximo es: " + maxObj.toFixed(2) + "%" + "</b>";
+  }
   
-//   if (selcValor === 'min') {
-//     viewMax = "<b>" + "<font size=4.5>" +  "El valor minimo es: " + maxObj.toFixed(2) + "%" + "</b>";
-//   }
+  if (selcValor === 'min') {
+    viewMax = "<b>" + "<font size=4.5>" +  "El valor minimo es: " + maxObj.toFixed(2) + "%" + "</b>";
+  }
   
-//   document.getElementById('valorMAx').innerHTML = viewMax;
+  document.getElementById('valorMAx').innerHTML = viewMax;
   
-//   return maxObj;
-// }
+  return maxObj;
+}
 
 
 const orderByAscent = () => { //funcion ordenar asc/desc
@@ -174,28 +174,28 @@ const orderByAscent = () => { //funcion ordenar asc/desc
 orderAscDat.addEventListener('change', orderByAscent); //funcion recorre el objeto*/
 
 
-// const valorMaximo = () => { //funcion ordenar max/min
-//   let arrayMax = valorPorcentajeY;
-//   //console.log(arrayMax);
-//   let selcValor = maximo.value;
-//   let maxObj = window.worldBank.objMax(selcValor, arrayMax);
-//   ptrMax(selcValor, maxObj)
-// }
-// maximo.addEventListener('change', valorMaximo); //funcion recorre el objeto*/
+const valorMaximo = () => { //funcion ordenar max/min
+  let arrayMax = valorPorcentajeY;
+  //console.log(arrayMax);
+  let selcValor = maximo.value;
+  let maxObj = window.worldBank.objMax(selcValor, arrayMax);
+  ptrMax(selcValor, maxObj)
+}
+maximo.addEventListener('change', valorMaximo); //funcion recorre el objeto*/
 
 
-// const limpiar = () => {
-//   document.getElementById('filtrar-pais').value = '';
-//   document.getElementById('filtrar-indicador').value = '';
-//   document.getElementById('order').value = '';
-//   document.getElementById('valorMAx').style.display = 'none';
-//   document.getElementById('reporte').style.display = 'none';
-//   document.getElementById('contenido').innerHTML = '';
-//   document.getElementById('graf').style.display = 'none';
-// }
+const limpiar = () => {
+  document.getElementById('filtrar-pais').value = '';
+  document.getElementById('filtrar-indicador').value = '';
+  document.getElementById('order').value = '';
+  document.getElementById('valorMAx').style.display = 'none';
+  document.getElementById('reporte').style.display = 'none';
+  document.getElementById('contenido').innerHTML = '';
+  document.getElementById('graf').style.display = 'none';
+}
 
-// buttonLimpiar.addEventListener('click', limpiar)
-// //console.log(limpiar);
+buttonLimpiar.addEventListener('click', limpiar)
+//console.log(limpiar);
 
 
 const DatGraph = () => { //funcion llenado de grafica con arrayX y arrayY
