@@ -1,4 +1,5 @@
 let baseDatos = {};
+var mainApp = {};
 const buttonMenu = document.getElementById('showMenu');
 const menuList = document.getElementById('menuList');
 const box2 = document.getElementById('box2');
@@ -20,6 +21,7 @@ let contenido = document.getElementById('contenido');
 let buttonLimpiar = document.getElementById('limpiar');
 let buttonContact = document.getElementById('contact');
 let buttonProp = document.getElementById('prop');
+let buttonLogOut = document.getElementById('logOut');
 const change = document.getElementById('change')
 let ctx = document.getElementById("myChart").getContext("2d"); //contenido grafica
 let valorAnioX = [];
@@ -27,6 +29,23 @@ let valorPorcentajeY = [];
 let pais;
 let contador = 0;
 
+var firebase = app_fireBase;
+var uid = null;
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    uid = user.uid;
+  } else {
+    uid = null;
+    window.location.replace("login.html")
+  }
+});
+
+function logOut(){
+  firebase.auth().signOut();
+}
+mainApp.logOut = logOut;
+buttonLogOut.addEventListener('click',mainApp.logOut);
 
 const mostrarMenu = () => { //Funcion mantiene activo o desactivo el menu, segun el valor del contador
   if (contador == 0) {
