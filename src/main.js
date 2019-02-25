@@ -25,7 +25,6 @@ let ctx = document.getElementById("myChart").getContext("2d"); //contenido grafi
 let valorAnioX = [];
 let valorPorcentajeY = [];
 let pais;
-let viewMax;
 let contador = 0;
 
 
@@ -47,6 +46,7 @@ buttonMenu.addEventListener('click', menu);
 
 const bienvenida = () => { //funcion muestra apartado Bienvenida
   mostrarMenu()
+  
   reporte.style.display = 'none';
   valorMAx.style.display = 'none';
   contenido.style.display = 'none';
@@ -72,6 +72,7 @@ buttonHome.addEventListener('click', bienvenida);
 
 const showContact = () => {
   mostrarMenu()
+  
   reporte.style.display = 'none';
   valorMAx.style.display = 'none';
   contenido.style.display = 'none';
@@ -85,6 +86,7 @@ buttonContact.addEventListener('click', showContact);
 
 const showProp = () => {
   mostrarMenu()
+ 
   reporte.style.display = 'none';
   valorMAx.style.display = 'none';
   contenido.style.display = 'none';
@@ -99,7 +101,7 @@ buttonProp.addEventListener('click', showProp);
 
 const filtraIndPais = () => {
   baseDatos = JSON.parse(localStorage.getItem('data'))
-  console.log(baseDatos)
+  //console.log(baseDatos)
   valorAnioX = []; //inicializa los arreglo eje X para el pintado de la grafica
   valorPorcentajeY = []; //inicializa los arreglo eje Y para el pintado de la grafica
   contenido.style.display = 'block';
@@ -148,18 +150,22 @@ const prtOrder = (orderObj) => {
 const ptrMax = (selcValor, maxObj) => { //imprime max/min
   
   valorMAx.style.display = 'block';
-  viewMax;
+let viewMax;
+
   if (selcValor === 'max') {
     viewMax = "<b>" + "<font size=4.5>" + "El valor maximo es: " + maxObj.toFixed(2) + "%" + "</b>";
+    document.getElementById('valorMAx').innerHTML = viewMax;
+    return ;
   }
   
-  if (selcValor === 'min') {
+  else{
     viewMax = "<b>" + "<font size=4.5>" +  "El valor minimo es: " + maxObj.toFixed(2) + "%" + "</b>";
+    document.getElementById('valorMAx').innerHTML = viewMax;
+  
+    return ;
+   
   }
   
-  document.getElementById('valorMAx').innerHTML = viewMax;
-  
-  return maxObj;
 }
 
 
@@ -188,6 +194,8 @@ const limpiar = () => {
   document.getElementById('filtrar-pais').value = '';
   document.getElementById('filtrar-indicador').value = '';
   document.getElementById('order').value = '';
+  document.getElementById('valorMAx').innerHTML = '';
+  document.getElementById('reporte').innerHTML = '';
   document.getElementById('valorMAx').style.display = 'none';
   document.getElementById('reporte').style.display = 'none';
   document.getElementById('contenido').innerHTML = '';
@@ -208,7 +216,7 @@ const DatGraph = () => { //funcion llenado de grafica con arrayX y arrayY
   return almacenaGraf;
 }
 
-// change.addEventListener('click', muestra_indicador)
+ change.addEventListener('click', muestra_indicador)
 
 const url = './data/worldbank/worldbank.json'
 
@@ -217,4 +225,4 @@ fetch(url)
 .then(response => response.json())
 .then(data => localStorage.setItem('data', JSON.stringify(data)))
 
-.catch(err => console.error(err))
+.catch(err => (err))
