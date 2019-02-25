@@ -1,5 +1,5 @@
 var app_fireBase = {}
-
+var firebase;
     // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBGKx6d7k3H4eefWxiRKk2vGlkDLn6VT8o",

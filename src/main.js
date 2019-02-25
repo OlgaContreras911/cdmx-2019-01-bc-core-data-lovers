@@ -28,6 +28,7 @@ let valorAnioX = [];
 let valorPorcentajeY = [];
 let pais;
 let contador = 0;
+var app_fireBase;
 
 var firebase = app_fireBase;
 var uid = null;
